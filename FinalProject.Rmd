@@ -1,0 +1,19 @@
+---
+title: "Final Project"
+author: "Zach Brown"
+date: "`r paste('Last Updated:', Sys.Date())`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## College Majors and Employment
+
+During college, students are always worrying and thinking about what is next for them in a career. Everyone wants a job that makes a lot money or at least will be able to support them throughout their life. This is why knowing the affect that college majors have on employment is important.
+
+The Kaggle data set, titled "College Majors" will help us answer the question, "How do employment rates and earnings vary across different majors?"  
+
+## Data Exploration
+

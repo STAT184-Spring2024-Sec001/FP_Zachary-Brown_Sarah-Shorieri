@@ -1,6 +1,6 @@
 ---
 title: "Final Project"
-author: "Zach Brown"
+author: "Zachary Brown, Sarah Shorieri"
 date: "`r paste('Last Updated:', Sys.Date())`"
 output: pdf_document
 ---
@@ -11,9 +11,45 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## College Majors and Employment
 
-During college, students are always worrying and thinking about what is next for them in a career. Everyone wants a job that makes a lot money or at least will be able to support them throughout their life. This is why knowing the affect that college majors have on employment is important.
+During college, students are always worrying and thinking about what is next for them in a career. Everyone wants a job that makes a lot money or at least will be able to support them throughout their life. This is why knowing the effect that college majors have on employment is important.
 
-The Kaggle data set, titled "College Majors" will help us answer the question, "How do employment rates and earnings vary across different majors?"  
+The Kaggle data set, titled "College Majors" will help us answer the question, "How do employment rates and earnings vary across different majors?"
 
 ## Data Exploration
 
+We can answer our question by looking at different data visualizations. We will start by creating a visualization that shows the unemployment rate of different categories of majors. This bar graph will help us understand which majors are employed and the least employed.
+
+```{r}
+recent_grads <- read.csv("recent-grads.csv")
+```
+
+```{r}
+library(ggplot2)
+ggplot(recent_grads) +
+  aes(x = Major_category, y = Unemployment_rate) +
+  geom_col(fill = "blue") +
+  labs(
+    x = "Major Category",
+    y = "Unemployment Rate",
+    title = "Major Category vs Unemployment Rate"
+  ) +
+  theme(axis.text.x = element_text(size = 2))
+```
+
+This bar graph above shows us that engineer majors are the most likely to be unemployed and this difference is not close at all. On the other hand, interdisciplinary majors are the most likely to be employed.
+
+Now that we have looked at the employment rate of different major categories, it is time to see how much each major category makes on average.
+
+```{r}
+ggplot(recent_grads) +
+  aes(x = Major_category, y = Median) +
+  geom_col(fill = "blue") +
+  labs(
+    x = "Major Category",
+    y = "Median Earnings",
+    title = "Major Category vs Median Earnings"
+  ) +
+  theme(axis.text.x = element_text(size = 2))
+```
+
+The bar graph above clearly shows that engineering majors earn the most on average by far. While interdisciplinary majors earn the least on average. Engineering and interdisciplinary majors are also the most unemployed and least employed majors, respectively. When looking closer at this graph of median earnings, it looks very similar to the graph of unemployment rate. This raises an alternative question, dose a higher unemployment rate mean more earnings?

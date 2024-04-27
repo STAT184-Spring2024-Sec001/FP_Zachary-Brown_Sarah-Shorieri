@@ -85,4 +85,5 @@ top_10_engineering_majors %>%
     bootstrap_options = c("striped"),
     font_size = 16
   )
+
 ```

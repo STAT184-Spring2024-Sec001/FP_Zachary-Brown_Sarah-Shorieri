@@ -53,3 +53,36 @@ ggplot(recent_grads) +
 ```
 
 The bar graph above clearly shows that engineering majors earn the most on average by far. While interdisciplinary majors earn the least on average. Engineering and interdisciplinary majors are also the most unemployed and least employed majors, respectively. When looking closer at this graph of median earnings, it looks very similar to the graph of unemployment rate. This raises an alternative question, dose a higher unemployment rate mean more earnings?
+
+```{r}
+# Load library to make table
+library(knitr)
+library(kableExtra)
+library(dplyr)
+
+
+# Filter engineering majors
+engineering_data <- recent_grads %>%
+  filter(Major_category == "Engineering")
+
+# Select relevant columns (Major, Major_category, Median)
+engineering_earnings <- engineering_data %>%
+  select(Major, Major_category, Median)
+
+# Display the top 10 engineering majors by median earnings
+top_10_engineering_majors <- engineering_earnings %>%
+  arrange(desc(Median)) %>%
+  slice(1:10)
+
+# Print the summary table using kable and kableExtra
+top_10_engineering_majors %>%
+  kable(
+    caption = "Top 10 Engineering Major with Highest Earning", 
+    booktabs = TRUE, 
+    align = c("l", rep("c", 9))
+  ) %>%
+  kable_styling(
+    bootstrap_options = c("striped"),
+    font_size = 16
+  )
+```

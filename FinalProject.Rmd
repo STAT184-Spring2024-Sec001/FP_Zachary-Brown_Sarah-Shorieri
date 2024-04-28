@@ -96,12 +96,12 @@ top_10_engineering_majors %>%
   ) %>%
   kable_styling(
     bootstrap_options = c("striped"),
-    font_size = 16
+    font_size = 14
   )
 
 ```
 
-The top 10 engineering majors by median earnings provide valuable insights into the lucrative career paths within the field. With petroleum engineering leading the pack with a median salary of $110,000, it's evident that specialized expertise in industries like resource extraction commands significant financial rewards. Following closely behind are disciplines such as mining and mineral engineering, metallurgical engineering, and naval architecture and marine engineering, all offering median earnings ranging from $73,000 to $75,000. These findings underscore the importance of considering both personal interests and market demand when choosing an engineering major, as certain specializations demonstrate higher earning potential than others.
+The top 10 engineering majors by median earnings provide valuable insights into the lucrative career paths within the field. With petroleum engineering leading the pack with a median salary of \$110,000, it's evident that specialized expertise in industries like resource extraction commands significant financial rewards. Following closely behind are disciplines such as mining and mineral engineering, metallurgical engineering, and naval architecture and marine engineering, all offering median earnings ranging from \$73,000 to \$75,000. These findings underscore the importance of considering both personal interests and market demand when choosing an engineering major, as certain specializations demonstrate higher earning potential than others.
 
 Furthermore, the inclusion of disciplines like chemical, nuclear, mechanical, electrical, computer, and aerospace engineering within the top 10 highlights the diverse array of career opportunities available within the engineering field. Despite variations in median earnings, all of these majors offer competitive salaries, reflecting the value placed on engineering skills across industries. These findings not only provide valuable guidance for students navigating their educational and career pathways but also underscore the critical role of engineering in driving economic growth and innovation.
 
@@ -152,6 +152,7 @@ The analysis of the "Discrepancy in 75th Percentile and Median Earnings" highlig
 Overall, the discrepancy in 75th percentile and median earnings within the pharmacy and pharmaceutical sciences major underscores the diverse range of career paths and earning potentials available within this field. Understanding these variations can provide valuable insights for students and professionals seeking to navigate their careers and maximize their earning potential within the pharmaceutical industry.
 
 # Conclusion
+
 Through our analysis, we've gained valuable insights into the employment rates and earnings associated with various college majors. Engineering majors stand out both in terms of high earnings and elevated unemployment rates. This prompts further investigation into the correlation between unemployment rates and earnings within specific major categories, offering avenues for future research and career guidance for students.
 
 Our findings underscore the importance of considering both employment prospects and earnings potential when choosing a college major. By understanding the dynamics of the job market and the economic value of different fields of study, students can make more informed decisions that align with their career aspirations and financial goals.

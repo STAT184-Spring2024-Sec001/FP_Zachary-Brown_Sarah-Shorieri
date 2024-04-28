@@ -18,7 +18,12 @@ library(dplyr)
 
 During college, students are always worrying and thinking about what is next for them in a career. Everyone wants a job that makes a lot money or at least will be able to support them throughout their life. This is why knowing the effect that college majors have on employment is important.
 
+Beyond personal interests and academic strengths, considerations about future employment prospects and earning potential play a pivotal role in this decision-making process. Understanding how different majors correlate with employment rates and earnings is essential for students to make informed choices about their education and career trajectories.
+
+The exploration of employment rates and earnings across various college majors not only sheds light on the economic landscape but also provides valuable insights into societal trends and workforce demands. By analyzing data on employment rates, median earnings, and other attributes such as industry-specific metrics, we can uncover patterns and disparities that exist within different fields of study. Moreover, delving into specific majors and industries allows us to identify outliers and exceptions, providing nuanced perspectives on the relationship between education and economic outcomes.
+
 The Kaggle data set, titled "College Majors" will help us answer the question, "How do employment rates and earnings vary across different majors?"
+\newpage
 
 # Data Exploration
 
@@ -28,7 +33,7 @@ Our analysis begins with an examination of the unemployment rates among various 
 
 The bar graph illustrates that engineering majors exhibit the highest unemployment rates, whereas interdisciplinary majors portray the lowest. This finding raises questions about the job market demand for specific skill sets within each major category and highlights the importance of considering both personal interests and market demand when choosing a major.
 
-```{r}
+```{r, fig.cap= "Bar Graph of Major Category and Unemployment Rate"}
 recent_grads <- read.csv("recent-grads.csv")
 library(ggplot2)
 ggplot(recent_grads) +
@@ -43,6 +48,7 @@ ggplot(recent_grads) +
 ```
 
 This bar graph above shows us that engineer majors are the most likely to be unemployed and this difference is not close at all. On the other hand, interdisciplinary majors are the most likely to be employed.
+\newpage
 
 ## Median Earnings Across Major Categories
 
@@ -50,7 +56,7 @@ Now that we have looked at the employment rate of different major categories, it
 
 We analyze the average earnings within each major category. Earnings potential is a significant factor for students when selecting a major, as it directly impacts their future financial stability and quality of life. Understanding which majors lead to higher earnings can help students make informed decisions about their educational investments.
 
-```{r}
+```{r, fig.cap="Bar Graph of Major Category and Median Earnings"}
 ggplot(recent_grads) +
   aes(x = Major_category, y = Median) +
   geom_col(fill = "steelblue") +
@@ -63,6 +69,7 @@ ggplot(recent_grads) +
 ```
 
 The bar graph above clearly shows that engineering majors earn the most on average by far. While interdisciplinary majors earn the least on average. Engineering and interdisciplinary majors are also the most unemployed and least employed majors, respectively. When looking closer at this graph of median earnings, it looks very similar to the graph of unemployment rate. This raises an alternative question, dose a higher unemployment rate mean more earnings?
+\newpage
 
 ## Top 100 Highest Median Earnings in Engineering Major
 
@@ -104,12 +111,13 @@ top_10_engineering_majors %>%
 The top 10 engineering majors by median earnings provide valuable insights into the lucrative career paths within the field. With petroleum engineering leading the pack with a median salary of \$110,000, it's evident that specialized expertise in industries like resource extraction commands significant financial rewards. Following closely behind are disciplines such as mining and mineral engineering, metallurgical engineering, and naval architecture and marine engineering, all offering median earnings ranging from \$73,000 to \$75,000. These findings underscore the importance of considering both personal interests and market demand when choosing an engineering major, as certain specializations demonstrate higher earning potential than others.
 
 Furthermore, the inclusion of disciplines like chemical, nuclear, mechanical, electrical, computer, and aerospace engineering within the top 10 highlights the diverse array of career opportunities available within the engineering field. Despite variations in median earnings, all of these majors offer competitive salaries, reflecting the value placed on engineering skills across industries. These findings not only provide valuable guidance for students navigating their educational and career pathways but also underscore the critical role of engineering in driving economic growth and innovation.
+\newpage 
 
 ## Median Vs 75th Percentile Earnings
 
 We visualize the relationship between median and 75th percentile earnings across majors to understand the distribution of earnings within each major category. This analysis helps identify majors where a significant proportion of graduates earn higher salaries, highlighting potential opportunities for career advancement and salary growth.
 
-```{r}
+```{r,fig.cap="Scatter Plot of Median vs 75th Percentile Earnings"}
 
 # Plotting with logarithmic scaling
 ggplot(recent_grads, aes(x = Median, y = P75th,color = Major_category)) +
@@ -123,12 +131,14 @@ ggplot(recent_grads, aes(x = Median, y = P75th,color = Major_category)) +
 In examining the relationship between median and 75th percentile earnings across different majors, an intriguing pattern emerges, notably within the engineering field. While engineering majors boast some of the highest median earnings, they also exhibit the most negative correlation between median and 75th percentile earnings. This suggests that while a significant proportion of engineering graduates earn salaries close to the median, there exists a subset of individuals within these majors who command substantially higher earnings, as indicated by the 75th percentile. This discrepancy underscores the diverse range of career trajectories within engineering, where certain individuals may leverage specialized skills or experiences to attain higher salaries, surpassing the median earnings for their respective majors.
 
 This finding carries important implications for students and professionals within the engineering field. While median earnings provide a general overview of earning potential within a major, exploring the distribution of earnings through metrics such as the 75th percentile offers deeper insights into the range of opportunities available. Understanding this dynamic can empower individuals to strategically navigate their careers, identifying avenues for advancement and maximizing their earning potential within their chosen field of engineering.
+\newpage
 
 ## Discrepancy in 75th Percentile and Median Earnings
 
 Lastly, we investigate majors with a high 75th percentile but low median earnings. This analysis reveals majors where a small percentage of graduates earn substantially higher salaries compared to the median. Understanding the factors contributing to this discrepancy can provide valuable insights into career trajectories and potential strategies for maximizing earning potential within specific fields.
 
-```{r}
+```{r, fig.cap="Top 10 Majors: High P75th and Low Median Earnings"}
+# Arrange P75th & Median Earnings into descending order
 sorted_data <- recent_grads %>% arrange(desc(P75th), Median)
 
 # Select the first 10 majors
@@ -150,9 +160,16 @@ ggplot(top_10_majors_high_p75th_low_median, aes(x = reorder(Major, P75th), y = P
 The analysis of the "Discrepancy in 75th Percentile and Median Earnings" highlights a notable observation regarding the pharmacy, pharmaceutical sciences, and administration major. This major stands out with the highest difference between the 75th percentile and median earnings among the top 10 majors examined. This discrepancy suggests that while the median earnings for graduates in this field may be relatively moderate, there exists a subset of individuals who command significantly higher salaries, as indicated by the 75th percentile earnings.
 
 Overall, the discrepancy in 75th percentile and median earnings within the pharmacy and pharmaceutical sciences major underscores the diverse range of career paths and earning potentials available within this field. Understanding these variations can provide valuable insights for students and professionals seeking to navigate their careers and maximize their earning potential within the pharmaceutical industry.
+\newpage 
 
 # Conclusion
 
 Through our analysis, we've gained valuable insights into the employment rates and earnings associated with various college majors. Engineering majors stand out both in terms of high earnings and elevated unemployment rates. This prompts further investigation into the correlation between unemployment rates and earnings within specific major categories, offering avenues for future research and career guidance for students.
 
 Our findings underscore the importance of considering both employment prospects and earnings potential when choosing a college major. By understanding the dynamics of the job market and the economic value of different fields of study, students can make more informed decisions that align with their career aspirations and financial goals.
+\newpage
+
+# Appendix: All code for this report
+
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```
